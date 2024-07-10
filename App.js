@@ -1,20 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useFonts } from "expo-font";
+import "react-native-gesture-handler";
+import { NavigationContainer } from "@react-navigation/native";
+import { RootStackNavigation } from "./src/navigation/RootStackNavigator";
+import { RecoilRoot } from "recoil";
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    NotoSerif: require("./assets/fonts/NotoSerif.ttf"),
+    NotoSerifBold: require("./assets/fonts/NotoSerifBold.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return null; // 폰트 로딩 중에는 렌더링을 방지
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <RecoilRoot>
+      <NavigationContainer>
+        <RootStackNavigation />
+      </NavigationContainer>
+    </RecoilRoot>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
