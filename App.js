@@ -3,6 +3,8 @@ import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { RootStackNavigation } from "./src/navigation/RootStackNavigator";
 import { RecoilRoot } from "recoil";
+import { StatusBar } from "expo-status-bar";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -15,10 +17,15 @@ export default function App() {
   }
 
   return (
-    <RecoilRoot>
-      <NavigationContainer>
-        <RootStackNavigation />
-      </NavigationContainer>
-    </RecoilRoot>
+    <SafeAreaProvider>
+      <StatusBar style="auto" />
+      <SafeAreaView style={{ flex: 1 }}>
+        <RecoilRoot>
+          <NavigationContainer>
+            <RootStackNavigation />
+          </NavigationContainer>
+        </RecoilRoot>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
