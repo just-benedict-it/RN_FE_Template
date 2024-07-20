@@ -1,4 +1,4 @@
-rootProject.name = 'frontend'
+rootProject.name = 'Hybrid AI dev'
 
 dependencyResolutionManagement {
   versionCatalogs {

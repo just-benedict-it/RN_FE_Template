@@ -8,6 +8,10 @@ module.exports = {
     orientation: "portrait",
     icon: "./assets/icon.png",
     userInterfaceStyle: "light",
+    androidStatusBar: {
+      "backgroundColor": "#ffffff",
+      "barStyle": "dark-content" // 또는 "dark-content"
+    },
     splash: {
       image: "./assets/splash.png",
       resizeMode: "contain",
